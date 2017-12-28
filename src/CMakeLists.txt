@@ -1,7 +1,8 @@
 
 set (agent_src example.cpp)
 
-find_package(Boost)
+set(Boost_USE_STATIC_LIBS   ON)
+find_package(Boost REQUIRED)
 
 if(Boost_FOUND)
   include_directories(${Boost_INCLUDE_DIRS})
