@@ -1,15 +1,10 @@
+## Use compiler debugging flags per default
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+set(CMAKE_CXX_FLAGS "-std=c++14 -Wall -Wextra -Wpedantic")
 
-set (agent_src example.cpp)
-
-set(Boost_USE_STATIC_LIBS   ON)
-find_package(Boost REQUIRED)
-
-if(Boost_FOUND)
-  include_directories(${Boost_INCLUDE_DIRS})
-	add_executable (HostMeAgent ${agent_src})
-
-	# The rule to install daemon binary
-	install (TARGETS HostMeAgent
-		RUNTIME
-		DESTINATION bin)
-endif()
+## Creating Binaries for each *.cxx file
+SET(PROJECT_LIBS ${Boost_LIBRARIES})
+SET(PROJECT_BIN ${PROJECT_NAME})
+ADD_EXECUTABLE(${PROJECT_BIN} ${MAINFOLDER}/src/main.cxx ${PROJECT_SRCS})
+TARGET_LINK_LIBRARIES(${PROJECT_BIN} ${PROJECT_LIBS})
+INSTALL(TARGETS ${PROJECT_BIN} DESTINATION bin)

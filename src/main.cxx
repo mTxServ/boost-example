@@ -2,9 +2,15 @@
 #include <iostream>
 #include <iterator>
 #include <algorithm>
+#include "Options.h"
 
-int main()
+int main(int argc, char** argv)
 {
+    Options options;
+
+    if(!options.parse(argc, argv))
+        return 1;
+
     using namespace boost::lambda;
     typedef std::istream_iterator<int> in;
 
