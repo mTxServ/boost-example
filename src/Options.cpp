@@ -15,7 +15,7 @@ namespace po = boost::program_options;
 
         po::options_description hidden;
         hidden.add_options()
-            ("fname", po::value<std::string>(&fname)->required(), "filename")
+            ("fname", po::value<std::string>(&fname), "filename")
             ;
 
         po::options_description all_options;

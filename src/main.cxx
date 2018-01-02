@@ -1,19 +1,19 @@
-#include <boost/lambda/lambda.hpp>
 #include <iostream>
-#include <iterator>
-#include <algorithm>
+#include <cstdlib>
+#include "app.h"
 #include "Options.h"
+
+using namespace std;
 
 int main(int argc, char** argv)
 {
+    App app;
     Options options;
 
+    cout << app.getProjectVersion() << endl;
+    
     if(!options.parse(argc, argv))
-        return 1;
+        return EXIT_FAILURE;
 
-    using namespace boost::lambda;
-    typedef std::istream_iterator<int> in;
-
-    std::for_each(
-        in(std::cin), in(), std::cout << (_1 * 3) << " " );
+    return EXIT_SUCCESS;
 }
