@@ -1,6 +1,5 @@
 ## Use compiler debugging flags per default
-set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
-set(CMAKE_CXX_FLAGS "-std=c++14 -Wall -Wextra -Wpedantic")
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${CMAKE_CXX_FLAGS_DEBUG}")
 
 ## Creating Binaries for each *.cxx file
 SET(PROJECT_LIBS ${Boost_LIBRARIES})

@@ -7,4 +7,4 @@ install_manifest.txt
 .project
 .settings/
 compile_commands.json
-
+bin/*
